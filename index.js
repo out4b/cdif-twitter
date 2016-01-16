@@ -45,6 +45,7 @@ TwitterDevice.prototype.getUserTimeline = function(args, callback) {
     callback(new Error('cannot make request'), null);
     return;
   }
+  // if we want to access raw oauth lib interface please refer to below commented code
   // var url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?' + querystring.stringify(args.options);
   // console.log(url);
   // this.oauth.get(url, this.oauth_access_token, this.oauth_access_token_secret, function(err, data) {
