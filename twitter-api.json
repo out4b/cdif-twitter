@@ -20,23 +20,33 @@
       }
     ],
     "serviceList": {
-      "urn:twitter-com:serviceID:Timeline": {
-        "serviceType": "urn:yeelight-com:service:Timeline:1",
+      "urn:twitter-com:serviceID:Statuses": {
+        "serviceType": "urn:twitter-com:service:Statuses:1",
         "actionList": {
-          "getTimeline": {
+          "getUserTimeline": {
             "argumentList": {
-              "timeline": {
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_userTimelineArgs"
+              },
+              "userTimeline": {
                 "direction": "out",
                 "retval": true,
-                "relatedStateVariable": "timeline"
+                "relatedStateVariable": "A_ARG_TYPE_userTimelineResult"
               }
             }
           }
         },
         "serviceStateTable": {
-          "timeline": {
+          "A_ARG_TYPE_userTimelineArgs": {
             "sendEvents": false,
-            "dataType": "string"
+            "dataType": "object",
+            "schema": "/twitter/statuses/userTimelineArgs"
+          },
+          "A_ARG_TYPE_userTimelineResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/userTimelineResult"
           }
         }
       }
