@@ -35,10 +35,140 @@
           "include_rts": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "userTimelineResult": {
         "type": "array"
+      },
+      "mentionsArgs": {
+        "type": "object",
+        "properties": {
+          "since_id": {
+            "type": "number"
+          },
+          "count": {
+            "type": "number"
+          },
+          "max_id": {
+            "type": "number"
+          },
+          "trim_user": {
+            "type": "boolean"
+          },
+          "contributor_details": {
+            "type": "boolean"
+          },
+          "include_entities": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "mentionsResult": {
+        "type": "array"
+      },
+      "homeTimelineArgs": {
+        "type": "object",
+        "properties": {
+          "since_id": {
+            "type": "number"
+          },
+          "count": {
+            "type": "number"
+          },
+          "max_id": {
+            "type": "number"
+          },
+          "trim_user": {
+            "type": "boolean"
+          },
+          "exclude_replies": {
+            "type": "boolean"
+          },
+          "contributor_details": {
+            "type": "boolean"
+          },
+          "include_entities": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "homeTimelineResult": {
+        "type": "array"
+      },
+      "retweetsOfMeArgs": {
+        "type": "object",
+        "properties": {
+          "since_id": {
+            "type": "number"
+          },
+          "count": {
+            "type": "number"
+          },
+          "max_id": {
+            "type": "number"
+          },
+          "trim_user": {
+            "type": "boolean"
+          },
+          "include_user_entities": {
+            "type": "boolean"
+          },
+          "include_entities": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "retweetsOfMeResult": {
+        "type": "array"
+      },
+      "retweetsArgs": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number"
+          },
+          "trim_user": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "retweetsResult": {
+        "type": "array"
+      },
+      "showStatusArgs": {
+        "type": "object",
+        "properties": {
+          "trim_user": {
+            "type": "boolean"
+          },
+          "include_my_retweet": {
+            "type": "boolean"
+          },
+          "include_entities": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "showStatusResult": {
+        "type": "object"
+      },
+      "destroyStatusArgs": {
+        "type": "object",
+        "properties": {
+          "trim_user": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "destroyedStatusResult": {
+        "type": "object"
       }
     }
   }

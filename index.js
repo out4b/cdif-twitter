@@ -1,7 +1,8 @@
 var util        = require('util');
 var fs          = require('fs');
-var CdifDevice = require('cdif-device');
-var Twitter    = require('./lib/twitter');
+var querystring = require('querystring');
+var CdifDevice  = require('cdif-device');
+var Twitter     = require('./lib/twitter');
 
 var TwitterDevice = function() {
   var spec = require('./twitter-api.json');
@@ -26,6 +27,14 @@ var TwitterDevice = function() {
   this.twitter = new Twitter(this);
 
   this.setAction('urn:twitter-com:serviceID:Statuses', 'getUserTimeline', this.getUserTimeline);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'getMentions',     this.getMentions);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'getHomeTimeline', this.getHomeTimeline);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'getRetweetsOfMe', this.getRetweetsOfMe);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'getRetweets',     this.getRetweets);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'showStatus',      this.showStatus);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'destroyStatus',   this.destroyStatus);
+
+
   // this.setAction('urn:cdif-net:serviceID:BinarySwitch', 'setState', setYeelightBlueState);
   // this.setAction('urn:cdif-net:serviceID:Dimming','getLoadLevelState', getYeelightBlueBrightness);
   // this.setAction('urn:cdif-net:serviceID:Dimming','setLoadLevelState', setYeelightBlueBrightness);
@@ -40,11 +49,6 @@ TwitterDevice.prototype.getHWAddress = function(callback) {
 };
 
 TwitterDevice.prototype.getUserTimeline = function(args, callback) {
-  console.log(args);
-  if (this.oauth == null) {
-    callback(new Error('cannot make request'), null);
-    return;
-  }
   // if we want to access raw oauth lib interface please refer to below commented code
   // var url = 'https://api.twitter.com/1.1/statuses/user_timeline.json?' + querystring.stringify(args.options);
   // console.log(url);
@@ -61,6 +65,51 @@ TwitterDevice.prototype.getUserTimeline = function(args, callback) {
   // });
   this.twitter.getUserTimeline(args.options, function(err, data) {
     callback(err, {userTimeline: data});
+  });
+};
+
+TwitterDevice.prototype.getMentions = function(args, callback) {
+  this.twitter.getMentions(args.options, function(err, data) {
+    callback(err, {mentions: data});
+  });
+};
+
+TwitterDevice.prototype.getHomeTimeline = function(args, callback) {
+  this.twitter.getHomeTimeline(args.options, function(err, data) {
+    callback(err, {homeTimeline: data});
+  });
+};
+
+TwitterDevice.prototype.getRetweetsOfMe = function(args, callback) {
+  var url = 'https://api.twitter.com/1.1/statuses/retweets_of_me.json?' + querystring.stringify(args.options);
+  this.oauth.get(url, this.oauth_access_token, this.oauth_access_token_secret, function(err, data) {
+    if (err) {
+      callback(err, null);
+      return;
+    }
+    try {
+      callback(null, {retweetsOfMe: JSON.parse(data)});
+    } catch (e) {
+      callback(e, null);
+    }
+  });
+};
+
+TwitterDevice.prototype.getRetweets = function(args, callback) {
+  this.twitter.getRetweets(args.id, args.options, function(err, data) {
+    callback(err, {retweets: data});
+  });
+};
+
+TwitterDevice.prototype.showStatus = function(args, callback) {
+  this.twitter.showStatus(args.id, args.options, function(err, data) {
+    callback(err, {status: data});
+  });
+};
+
+TwitterDevice.prototype.destroyStatus = function(args, callback) {
+  this.twitter.destroyStatus(args.id, args.options, function(err, data) {
+    callback(err, {destroyedStatus: data});
   });
 };
 

@@ -9,8 +9,10 @@ This module relies on the code from [Twitter node.js library](https://github.com
 
 For now the stream API is not support yet.
 
-See following links for more details.
+See following links for more details:
 
 [Common device interconnect framework](https://github.com/out4b/cdif)
 
 [Twitter node.js library](https://github.com/Isolus/twitter-ng)
+
+[Twitter API](https://dev.twitter.com/rest/public)

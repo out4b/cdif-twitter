@@ -7,7 +7,7 @@
   "device": {
     "deviceType": "urn:twitter-com:device:Twitter:1",
     "friendlyName": "Twitter",
-    "manufacturer": "Twitter",
+    "manufacturer": "Twitter Inc.",
     "manufacturerURL": "www.twitter.com",
     "userAuth": false,
     "iconList": [
@@ -35,6 +35,96 @@
                 "relatedStateVariable": "A_ARG_TYPE_userTimelineResult"
               }
             }
+          },
+          "getMentions": {
+            "argumentList": {
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_mentionsArgs"
+              },
+              "mentions": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_mentionsResult"
+              }
+            }
+          },
+          "getHomeTimeline": {
+            "argumentList": {
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_homeTimelineArgs"
+              },
+              "homeTimeline": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_homeTimelineResult"
+              }
+            }
+          },
+          "getRetweetsOfMe": {
+            "argumentList": {
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_retweetsOfMeArgs"
+              },
+              "retweetsOfMe": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_retweetsOfMeResult"
+              }
+            }
+          },
+          "getRetweets": {
+            "argumentList": {
+              "id": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_tweetID"
+              },
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_retweetsArgs"
+              },
+              "retweets": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_retweetsResult"
+              }
+            }
+          },
+          "showStatus": {
+            "argumentList": {
+              "id": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_tweetID"
+              },
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_showStatusArgs"
+              },
+              "status": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_showStatusResult"
+              }
+            }
+          },
+          "destroyStatus": {
+            "argumentList": {
+              "id": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_tweetID"
+              },
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_destroyStatusArgs"
+              },
+              "destroyedStatus": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_destroyedStatusResult"
+              }
+            }
           }
         },
         "serviceStateTable": {
@@ -47,6 +137,70 @@
             "sendEvents": false,
             "dataType": "object",
             "schema": "/twitter/statuses/userTimelineResult"
+          },
+          "A_ARG_TYPE_mentionsArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/mentionsArgs"
+          },
+          "A_ARG_TYPE_mentionsResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/mentionsResult"
+          },
+          "A_ARG_TYPE_homeTimelineArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/homeTimelineArgs"
+          },
+          "A_ARG_TYPE_homeTimelineResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/homeTimelineResult"
+          },
+          "A_ARG_TYPE_retweetsOfMeArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetsOfMeArgs"
+          },
+          "A_ARG_TYPE_retweetsOfMeResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetsOfMeResult"
+          },
+          "A_ARG_TYPE_tweetID": {
+            "dataType": "number",
+            "sendEvents": false
+          },
+          "A_ARG_TYPE_retweetsArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetsArgs"
+          },
+          "A_ARG_TYPE_retweetsResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetsResult"
+          },
+          "A_ARG_TYPE_showStatusArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/showStatusArgs"
+          },
+          "A_ARG_TYPE_showStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/showStatusResult"
+          },
+          "A_ARG_TYPE_destroyStatusArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/destroyStatusArgs"
+          },
+          "A_ARG_TYPE_destroyedStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/destroyedStatusResult"
           }
         }
       }
