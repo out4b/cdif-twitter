@@ -125,6 +125,40 @@
                 "relatedStateVariable": "A_ARG_TYPE_destroyedStatusResult"
               }
             }
+          },
+          "updateStatus": {
+            "argumentList": {
+              "text": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_tweetText"
+              },
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_updateStatusArgs"
+              },
+              "updatedStatus": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_updatedStatusResult"
+              }
+            }
+          },
+          "retweetStatus": {
+            "argumentList": {
+              "id": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_tweetID"
+              },
+              "options": {
+                "direction": "in",
+                "relatedStateVariable": "A_ARG_TYPE_retweetStatusArgs"
+              },
+              "retweetStatus": {
+                "direction": "out",
+                "retval": true,
+                "relatedStateVariable": "A_ARG_TYPE_retweetStatusResult"
+              }
+            }
           }
         },
         "serviceStateTable": {
@@ -169,7 +203,11 @@
             "schema": "/twitter/statuses/retweetsOfMeResult"
           },
           "A_ARG_TYPE_tweetID": {
-            "dataType": "number",
+            "dataType": "integer",
+            "sendEvents": false
+          },
+          "A_ARG_TYPE_tweetText": {
+            "dataType": "string",
             "sendEvents": false
           },
           "A_ARG_TYPE_retweetsArgs": {
@@ -201,6 +239,26 @@
             "sendEvents": false,
             "dataType": "object",
             "schema": "/twitter/statuses/destroyedStatusResult"
+          },
+          "A_ARG_TYPE_updateStatusArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/updateStatusArgs"
+          },
+          "A_ARG_TYPE_updatedStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/updatedStatusResult"
+          },
+          "A_ARG_TYPE_retweetStatusArgs": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetStatusArgs"
+          },
+          "A_ARG_TYPE_retweetStatusResult": {
+            "sendEvents": false,
+            "dataType": "object",
+            "schema": "/twitter/statuses/retweetStatusResult"
           }
         }
       }

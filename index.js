@@ -33,14 +33,15 @@ var TwitterDevice = function() {
   this.setAction('urn:twitter-com:serviceID:Statuses', 'getRetweets',     this.getRetweets);
   this.setAction('urn:twitter-com:serviceID:Statuses', 'showStatus',      this.showStatus);
   this.setAction('urn:twitter-com:serviceID:Statuses', 'destroyStatus',   this.destroyStatus);
-
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'updateStatus',    this.updateStatus);
+  this.setAction('urn:twitter-com:serviceID:Statuses', 'retweetStatus',   this.retweetStatus);
 
   // this.setAction('urn:cdif-net:serviceID:BinarySwitch', 'setState', setYeelightBlueState);
   // this.setAction('urn:cdif-net:serviceID:Dimming','getLoadLevelState', getYeelightBlueBrightness);
   // this.setAction('urn:cdif-net:serviceID:Dimming','setLoadLevelState', setYeelightBlueBrightness);
   // this.setAction('urn:yeelight-com:serviceID:ColorAdjust', 'getColor', getYeelightBlueColor);
   // this.setAction('urn:yeelight-com:serviceID:ColorAdjust', 'setColor', setYeelightBlueColor);
-};
+}
 
 util.inherits(TwitterDevice, CdifDevice);
 
@@ -110,6 +111,18 @@ TwitterDevice.prototype.showStatus = function(args, callback) {
 TwitterDevice.prototype.destroyStatus = function(args, callback) {
   this.twitter.destroyStatus(args.id, args.options, function(err, data) {
     callback(err, {destroyedStatus: data});
+  });
+};
+
+TwitterDevice.prototype.updateStatus = function(args, callback) {
+  this.twitter.updateStatus(args.text, args.options, function(err, data) {
+    callback(err, {updatedStatus: data});
+  });
+};
+
+TwitterDevice.prototype.retweetStatus = function(args, callback) {
+  this.twitter.retweetStatus(args.id, args.options, function(err, data) {
+    callback(err, {retweetStatus: data});
   });
 };
 
