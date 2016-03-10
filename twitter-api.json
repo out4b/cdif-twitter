@@ -8,7 +8,7 @@
     "deviceType": "urn:twitter-com:device:Twitter:1",
     "friendlyName": "Twitter",
     "manufacturer": "Twitter Inc.",
-    "manufacturerURL": "www.twitter.com",
+    "manufacturerURL": "http://www.twitter.com",
     "userAuth": false,
     "iconList": [
       {
