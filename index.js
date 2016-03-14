@@ -45,7 +45,7 @@ var TwitterDevice = function() {
 
 util.inherits(TwitterDevice, CdifDevice);
 
-TwitterDevice.prototype.getHWAddress = function(callback) {
+TwitterDevice.prototype._getHWAddress = function(callback) {
   callback(null, 'twitter');
 };
 
