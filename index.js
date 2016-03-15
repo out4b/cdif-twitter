@@ -1,4 +1,4 @@
-var util        = require('util');
+var CdifUtil    = require('cdif-util');
 var fs          = require('fs');
 var querystring = require('querystring');
 var CdifDevice  = require('cdif-device');
@@ -43,7 +43,7 @@ var TwitterDevice = function() {
   // this.setAction('urn:yeelight-com:serviceID:ColorAdjust', 'setColor', setYeelightBlueColor);
 }
 
-util.inherits(TwitterDevice, CdifDevice);
+CdifUtil.inherits(TwitterDevice, CdifDevice);
 
 TwitterDevice.prototype._getHWAddress = function(callback) {
   callback(null, 'twitter');
