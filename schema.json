@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "#/",
+  "type": "object",
+  "description": "schema definitions for Twitter API",
+  "twitter": {
+    "statuses": {
+      "userTimelineArgs": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "number"
+          },
+          "screen_name": {
+            "type": "string"
+          },
+          "since_id": {
+            "type": "number"
+          },
+          "count": {
+            "type": "number"
+          },
+          "max_id": {
+            "type": "number"
+          },
+          "trim_user": {
+            "type": "boolean"
+          },
+          "exclude_replies": {
+            "type": "boolean"
+          },
+          "contributor_details": {
+            "type": "boolean"
+          },
+          "include_rts": {
+            "type": "boolean"
+          }
+        }
+      },
+      "userTimelineResult": {
+        "type": "array"
+      }
+    }
+  }
+}
