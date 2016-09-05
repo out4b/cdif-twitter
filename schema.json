@@ -9,19 +9,19 @@
         "type": "object",
         "properties": {
           "user_id": {
-            "type": "number"
+            "type": "integer"
           },
           "screen_name": {
             "type": "string"
           },
           "since_id": {
-            "type": "number"
+            "type": "integer"
           },
           "count": {
-            "type": "number"
+            "type": "integer"
           },
           "max_id": {
-            "type": "number"
+            "type": "integer"
           },
           "trim_user": {
             "type": "boolean"
@@ -45,13 +45,13 @@
         "type": "object",
         "properties": {
           "since_id": {
-            "type": "number"
+            "type": "integer"
           },
           "count": {
-            "type": "number"
+            "type": "integer"
           },
           "max_id": {
-            "type": "number"
+            "type": "integer"
           },
           "trim_user": {
             "type": "boolean"
@@ -72,13 +72,13 @@
         "type": "object",
         "properties": {
           "since_id": {
-            "type": "number"
+            "type": "integer"
           },
           "count": {
-            "type": "number"
+            "type": "integer"
           },
           "max_id": {
-            "type": "number"
+            "type": "integer"
           },
           "trim_user": {
             "type": "boolean"
@@ -102,13 +102,13 @@
         "type": "object",
         "properties": {
           "since_id": {
-            "type": "number"
+            "type": "integer"
           },
           "count": {
-            "type": "number"
+            "type": "integer"
           },
           "max_id": {
-            "type": "number"
+            "type": "integer"
           },
           "trim_user": {
             "type": "boolean"
@@ -129,7 +129,7 @@
         "type": "object",
         "properties": {
           "count": {
-            "type": "number"
+            "type": "integer"
           },
           "trim_user": {
             "type": "boolean"
@@ -168,6 +168,55 @@
         "additionalProperties": false
       },
       "destroyedStatusResult": {
+        "type": "object"
+      },
+      "updateStatusArgs": {
+        "type": "object",
+        "properties": {
+          "in_reply_to_status_id": {
+            "type": "integer"
+          },
+          "possibly_sensitive": {
+            "type": "boolean"
+          },
+          "lat": {
+            "type": "number",
+            "maximum": 90,
+            "minimum": -90
+          },
+          "long": {
+            "type": "number",
+            "maximum": 180,
+            "minimum": -180
+          },
+          "place_id": {
+            "type": "string"
+          },
+          "display_coordinates": {
+            "type": "boolean"
+          },
+          "trim_user": {
+            "type": "boolean"
+          },
+          "media_ids": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "updatedStatusResult": {
+        "type": "object"
+      },
+      "retweetStatusArgs": {
+        "type": "object",
+        "properties": {
+          "trim_user": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "retweetStatusResult": {
         "type": "object"
       }
     }
