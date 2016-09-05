@@ -1,6 +1,6 @@
 {
   "name": "cdif-twitter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Twitter virtual device interface for CDIF framework",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
     "url": "https://github.com/out4b/cdif-twitter/issues"
   },
   "homepage": "https://github.com/out4b/cdif-twitter",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
