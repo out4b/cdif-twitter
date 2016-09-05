@@ -85,14 +85,15 @@ TwitterDevice.prototype.getRetweetsOfMe = function(args, callback) {
   var url = 'https://api.twitter.com/1.1/statuses/retweets_of_me.json?' + querystring.stringify(args.options);
   this.oauth.get(url, this.oauth_access_token, this.oauth_access_token_secret, function(err, data) {
     if (err) {
-      callback(err, null);
-      return;
+      return callback(err, null);
     }
+    var parsed = null;
     try {
-      callback(null, {retweetsOfMe: JSON.parse(data)});
+      parsed = JSON.parse(data);
     } catch (e) {
-      callback(e, null);
+      return callback(e, null);
     }
+    callback(null, {retweetsOfMe: parsed});
   });
 };
 
