@@ -1,6 +1,6 @@
 {
   "name": "cdif-twitter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Twitter virtual device interface for CDIF framework",
   "main": "index.js",
   "scripts": {
